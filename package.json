@@ -1,0 +1,29 @@
+{
+  "name": "RSS-Bot-Telegramm",
+  "version": "0.1.0",
+  "description": "A node.js RSS bot telegramm",
+  "main": "app",
+  "scripts": {
+    "start": "node app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "RSS",
+    "Bot",
+    "Telegramm"
+  ],
+  "author": "Oleg Nosov <nosovoleg@gmail.com> ",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/nosovoleg/rssTelegramBot.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "cron": "^1.2.1",
+    "feedparser": "^1.1.6",
+    "mysql": "^2.13.0",
+    "node-telegram-bot-api": "^0.27.1",
+    "request": "^2.79.0",
+    "winston": "^2.3.0"
+  }
+}
