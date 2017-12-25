@@ -1,7 +1,3 @@
-'use strict'
-
-const path = require('path');
-
 module.exports = {
   database: {
     mysql: {
@@ -10,9 +6,9 @@ module.exports = {
       user: '',
       password: '',
       database: '',
-    }
+    },
   },
   telegram: {
     token: '',
-  }
+  },
 };

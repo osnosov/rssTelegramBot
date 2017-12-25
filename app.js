@@ -1,12 +1,10 @@
-'use strict'
-
-const bot = require('./bot')
-const log = require('./log')(module)
-const config = require('./config')
-const CronJob = require('cron').CronJob
-const feed = require('./feed')
-const link = require('./link')
-const post = require('./post')
+const bot = require('./bot');
+const log = require('./log')(module);
+const config = require('./config');
+const CronJob = require('cron').CronJob;
+const feed = require('./feed');
+const link = require('./link');
+const post = require('./post');
 
 let linksFeed;
 
@@ -15,10 +13,10 @@ const job = new CronJob({
   onTick: function() {
     getFeeds();
   },
-  start: false
+  start: false,
 });
 
-link.getLinks(function(err,row) {
+link.getLinks(function(err, row) {
   if (err) {
     log.error('Get link error: ', err);
   } else {
@@ -29,7 +27,7 @@ link.getLinks(function(err,row) {
 
 function getFeeds() {
   linksFeed.forEach(function(linkFeed, number, linkFeeds) {
-    feed(linkFeed.feed,function(err,res){
+    feed(linkFeed.feed, function(err, res) {
       if (err) {
         log.error('Get feed error: ', err);
       } else {
@@ -46,16 +44,17 @@ function sendBotBd(data, channel) {
     if (err) {
       log.error('Error find by url:', err.stack);
     } else if (!row[0]) {
-      bot.sendMessage(channel, data.guid, {parse_mode: 'HTML'})
-        .then((sended) => {
+      bot
+        .sendMessage(channel, data.guid, { parse_mode: 'HTML' })
+        .then(sended => {
           data.message_id = sended.message_id;
           post.savePost(data, function(err, row) {
             if (err) log.error('Save post to BD error:', err);
           });
         })
-        .catch((error) => {
+        .catch(error => {
           log.error('Error send message telegram:', error.code);
         });
     }
   });
-};
+}

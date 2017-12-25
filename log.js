@@ -1,21 +1,22 @@
-'use strict'
-
-const winston = require('winston')
-const isWin = /^win/.test(process.platform)
+const winston = require('winston');
+const isWin = /^win/.test(process.platform);
 
 module.exports = function getLogger(module) {
-  let path = module.filename.split(isWin ? '\\' : '/').slice(-2).join(isWin ? '\\' : '/');
+  const path = module.filename
+    .split(isWin ? '\\' : '/')
+    .slice(-2)
+    .join(isWin ? '\\' : '/');
 
   return new winston.Logger({
-    transports : [
+    transports: [
       new winston.transports.Console({
         colorize: true,
         level: 'debug',
-        label: path
+        label: path,
       }),
       new winston.transports.File({
-        filename: 'log.log'
-      })
-    ]
+        filename: 'log.log',
+      }),
+    ],
   });
-}
+};
