@@ -1,4 +1,5 @@
 const winston = require('winston');
+
 const isWin = /^win/.test(process.platform);
 
 module.exports = function getLogger(module) {
