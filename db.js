@@ -10,7 +10,7 @@ const connection = mysql.createConnection({
   database: config.database.mysql.database,
 });
 
-connection.connect(function(err) {
+connection.connect(err => {
   if (err) {
     log.error('error connecting: ', err.stack);
     return;
