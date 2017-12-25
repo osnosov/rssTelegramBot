@@ -1,17 +1,13 @@
 {
   "name": "RSS-Bot-Telegramm",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A node.js RSS bot telegramm",
   "main": "app",
   "scripts": {
     "start": "node app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "RSS",
-    "Bot",
-    "Telegramm"
-  ],
+  "keywords": ["RSS", "Bot", "Telegramm"],
   "author": "Oleg Nosov <nosovoleg@gmail.com> ",
   "repository": {
     "type": "git",
@@ -25,5 +21,20 @@
     "node-telegram-bot-api": "^0.27.1",
     "request": "^2.79.0",
     "winston": "^2.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.12.1",
+    "eslint-config-airbnb-base": "^12.0.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.7.0",
+    "nodemon": "^1.12.4",
+    "prettier": "^1.9.0"
+  },
+  "eslintConfig": {
+    "extends": ["airbnb-base", "prettier"]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": true
   }
 }
