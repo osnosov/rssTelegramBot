@@ -1,4 +1,5 @@
 const mysql = require('mysql');
+
 const config = require('./config');
 const log = require('./log')(module);
 
@@ -18,4 +19,4 @@ connection.connect(err => {
   log.info('Database Connection successful.');
 });
 
-module.exports = connection;
+module.exports = { connection };

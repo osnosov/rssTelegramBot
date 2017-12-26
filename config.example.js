@@ -3,9 +3,9 @@ module.exports = {
     mysql: {
       host: 'localhost',
       port: 3306,
-      user: '',
+      user: 'root',
       password: '',
-      database: '',
+      database: 'feed',
     },
   },
   telegram: {

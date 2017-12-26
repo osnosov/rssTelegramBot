@@ -1,4 +1,7 @@
-const config = require('./config');
 const TelegramBot = require('node-telegram-bot-api');
 
-module.exports = new TelegramBot(config.telegram.token, { polling: true });
+const config = require('./config');
+
+const bot = new TelegramBot(config.telegram.token, { polling: true });
+
+module.exports = { bot };

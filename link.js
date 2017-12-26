@@ -1,8 +1,13 @@
-const connection = require('./db');
+const { connection } = require('./db');
 
-exports.getLinks = function(callback) {
-  connection.query('SELECT * FROM link', function(err, rows, fields) {
-    if (err) return callback(err);
+const getLinks = callback => {
+  connection.query('SELECT * FROM link', (err, rows) => {
+    if (err) {
+      callback(err);
+      return;
+    }
     callback(null, rows);
   });
 };
+
+module.exports = { getLinks };

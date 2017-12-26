@@ -1,22 +1,23 @@
-const connection = require('./db');
+const { connection } = require('./db');
 
-exports.findByUrl = function(url, callback) {
-  connection.query("SELECT * FROM post WHERE url = '" + url + "';", function(
-    err,
-    rows,
-    fields
-  ) {
-    if (err) return callback(err);
+const findByUrl = (url, callback) => {
+  connection.query(`SELECT * FROM post WHERE url = '${url}';`, (err, rows) => {
+    if (err) {
+      callback(err);
+      return;
+    }
     callback(null, rows);
   });
 };
 
-exports.savePost = function(post, callback) {
+const savePost = (post, callback) => {
   connection.query(
     'INSERT INTO post(title, url, message_id, pubdate) VALUES(?, ?, ?, ?);',
     [post.title, post.guid, post.message_id, post.pubdate],
-    function(err, fields) {
+    (err, fields) => {
       callback(err, fields);
     }
   );
 };
+
+module.exports = { findByUrl, savePost };
