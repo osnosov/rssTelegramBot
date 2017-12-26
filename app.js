@@ -47,7 +47,7 @@ const getFeeds = () => {
 
 const job = new CronJob({
   cronTime: '0 */30 * * * *',
-  getFeeds,
+  onTick: () => getFeeds(),
   start: false,
 });
 
