@@ -13,12 +13,16 @@ const sendBotBd = (data, channel) => {
     if (err) {
       log.error('Error find by url:', err.stack);
     } else if (!row[0]) {
-      log.info('data.guid:', data.guid);
       bot
         .sendMessage(channel, data.guid, { parse_mode: 'HTML' })
         .then(sended => {
-          data.message_id = sended.message_id;
-          savePost(data, errSavePost => {
+          const saveData = {
+            guid: data.guid,
+            title: data.title,
+            pubdate: data.pubdate,
+            message_id: sended.message_id,
+          };
+          savePost(saveData, errSavePost => {
             if (errSavePost) log.error('Save post to BD error:', errSavePost);
           });
         })
@@ -53,6 +57,5 @@ getLinks((err, row) => {
   } else {
     linksFeed = row;
     job.start();
-    getFeeds();
   }
 });
