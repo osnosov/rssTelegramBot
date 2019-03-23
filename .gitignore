@@ -59,6 +59,3 @@ typings/
 
 # Windows image file caches
 Thumbs.db
-
-# File config
-config.js

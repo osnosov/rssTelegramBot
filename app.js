@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const { CronJob } = require('cron');
 
 const { bot } = require('./bot');
