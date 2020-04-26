@@ -19,21 +19,21 @@
   },
   "license": "MIT",
   "dependencies": {
-    "cron": "^1.6.0",
+    "cron": "^1.8.2",
     "dotenv": "^7.0.0",
     "feedparser": "^1.1.6",
-    "mysql": "^2.16.0",
+    "mysql": "^2.18.1",
     "node-telegram-bot-api": "^0.27.1",
-    "request": "^2.88.0",
+    "request": "^2.88.2",
     "winston": "^2.4.4"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.0.0",
     "eslint-config-prettier": "^2.10.0",
-    "eslint-plugin-import": "^2.14.0",
-    "nodemon": "^1.18.9",
-    "prettier": "^1.15.3"
+    "eslint-plugin-import": "^2.20.2",
+    "nodemon": "^1.19.4",
+    "prettier": "^1.19.1"
   },
   "eslintConfig": {
     "extends": [
