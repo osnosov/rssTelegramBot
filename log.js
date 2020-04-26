@@ -15,9 +15,9 @@ module.exports = function getLogger(module) {
         level: 'debug',
         label: path,
       }),
-      new winston.transports.File({
-        filename: 'log.log',
-      }),
+      // new winston.transports.File({
+      //   filename: 'log.log',
+      // }),
     ],
   });
 };
