@@ -4,8 +4,8 @@ services:
   mysql:
     image: mariadb
     container_name: mysql-rss-bot
-    ports:
-      - 3306:3306
+#    ports:
+#      - 3306:3306
     volumes:
       - ./data/mysql:/var/lib/mysql
     environment:
@@ -28,8 +28,9 @@ services:
       - 'DATABASE_PASS=${DATABASE_PASS}'
       - 'DATABASE_NAME=${DATABASE_NAME}'
       - 'TELEGRAM_TOKEN=${TELEGRAM_TOKEN}'
-    volumes:
-      - ./:/src
+      - 'NODE_ENV=${NODE_ENV}'
+#    volumes:
+#      - ./:/src
     depends_on:
       - mysql
     links:
