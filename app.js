@@ -47,7 +47,7 @@ const getFeeds = async () => {
     for (const linkRes of globFeed) {
       await sendBotBd(linkRes)
     }
-    console.log('globFeed !!!!!!!!!!', globFeed)
+
     globFeed = []
   } catch (error) {
     console.log('error getFeeds', error)
