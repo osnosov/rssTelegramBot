@@ -20,7 +20,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: "rss-bot"
-    restart: "unless-stopped"
+    restart: unless-stopped
     environment:
       - 'DATABASE_HOST=mysql'
       - 'DATABASE_PORT=${DATABASE_PORT}'
